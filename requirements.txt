@@ -12,5 +12,5 @@ pandas>=0.19
 opencv-python
 tensorflow
 tqdm
-setuptools==40.3.0
+setuptools>=41.0.0
 
