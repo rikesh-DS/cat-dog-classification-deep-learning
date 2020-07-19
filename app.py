@@ -4,7 +4,7 @@ import cv2
 import keras
 
 app = Flask(__name__)
-model = keras.models.load_model('dog-cat.model')
+model = keras.models.load_model('dog-cat1.model')
 
 app.config["IMAGE_UPLOADS"] = "./static"
 print('helloooo starting')
