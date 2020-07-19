@@ -1,10 +1,10 @@
 from flask import Flask,request,render_template
 import os
 import cv2
-import tensorflow as tf
+import keras
 
 app = Flask(__name__)
-model = tf.keras.models.load_model('dog-cat.model')
+model = keras.models.load_model('dog-cat.model')
 
 app.config["IMAGE_UPLOADS"] = "./static"
 print('helloooo starting')
