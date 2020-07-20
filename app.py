@@ -40,7 +40,7 @@ def upload_image():
             #elif prediction == 0:
             #    output = 'CAT'
             img_array1  = image.load_img("15.jpg", target_size=(50, 50),grayscale=True)
-            data1 = np.array(data).reshape(-1,IMG_SIZE,IMG_SIZE,1)
+            data1 = np.array(img_array1).reshape(-1,IMG_SIZE,IMG_SIZE,1)
             #img_array1 = cv2.imread(image,cv2.IMREAD_GRAYSCALE)
             #new = cv2.resize(img_array1,(IMG_SIZE,IMG_SIZE))
             #new1 = new.reshape(-1,IMG_SIZE,IMG_SIZE,1)
