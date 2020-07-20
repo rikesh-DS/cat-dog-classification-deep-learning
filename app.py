@@ -7,7 +7,7 @@ import numpy as np
 
 
 app = Flask(__name__)
-model = tf.keras.models.load_model('dog-cat.model')
+model = tf.keras.models.load_model('dog-cat1.model')
 
 app.config["IMAGE_UPLOADS"] = "./static"
 print('helloooo starting')
