@@ -1,10 +1,13 @@
 from flask import Flask,request,render_template
 import os
-import cv2
-import keras
+import tensorflow as tf
+from tensorflow.keras.models import load_model
+from tensorflow.keras.preprocessing import image
+import numpy as np
+
 
 app = Flask(__name__)
-model = keras.models.load_model('dog-cat1.model')
+model = tf.keras.models.load_model('dog-cat.model')
 
 app.config["IMAGE_UPLOADS"] = "./static"
 print('helloooo starting')
@@ -19,9 +22,12 @@ database={'nachi':'123','james':'aac','karthik':'asdsf'}
 def upload_image():
     if request.method == 'POST':
         if request.files:
-            image = request.files["image"] 
+            image_path = request.files["image"] 
             print('helloooo')
-            image.save(os.path.join(app.config["IMAGE_UPLOADS"], image.filename))
+            #image.save(os.path.join(app.config["IMAGE_UPLOADS"], image.filename))
+  
+            #data1 = np.expand_dims(data, axis=0)
+            #data1 = data1 * 1.0 / 255
             #filename = secure_filename(image.filename)
             #image.save(os.path.join(app.config["IMAGE_UPLOADS"], image))
             #img_array = cv2.imread(image,cv2.IMREAD_GRAYSCALE)
@@ -33,11 +39,13 @@ def upload_image():
             #    output = 'DOG'
             #elif prediction == 0:
             #    output = 'CAT'
-            img_array1 = cv2.imread(image,cv2.IMREAD_GRAYSCALE)
-            new = cv2.resize(img_array1,(IMG_SIZE,IMG_SIZE))
-            new1 = new.reshape(-1,IMG_SIZE,IMG_SIZE,1)
+            img_array1  = image.load_img(image_path, target_size=(50, 50),grayscale=True)
+            data1 = np.array(data).reshape(-1,IMG_SIZE,IMG_SIZE,1)
+            #img_array1 = cv2.imread(image,cv2.IMREAD_GRAYSCALE)
+            #new = cv2.resize(img_array1,(IMG_SIZE,IMG_SIZE))
+            #new1 = new.reshape(-1,IMG_SIZE,IMG_SIZE,1)
              
-            prediction = model.predict(new1)
+            prediction = model.predict(data1)
            
             if prediction[0] == 1:
                 predict_value = 'DOG'
