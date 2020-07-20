@@ -24,7 +24,7 @@ def upload_image():
         if request.files:
             image_path = request.files["image"] 
             print('helloooo')
-            #image.save(os.path.join(app.config["IMAGE_UPLOADS"], image.filename))
+            image_path.save(os.path.join(app.config["IMAGE_UPLOADS"], image.filename))
   
             #data1 = np.expand_dims(data, axis=0)
             #data1 = data1 * 1.0 / 255
