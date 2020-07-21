@@ -81,7 +81,7 @@ def upload_image():
             #image.save(secure_filename(image.filename))
             #image.save(os.path.join(app.config["IMAGE_UPLOADS"]), image.filename)
             print("image saved")
-            return render_template('login.html', prediction_text='Animal is  $ {}'.format(predict_value),test = filepath)
+            return render_template('home.html', prediction_text='This is    {}'.format(predict_value),test = filepath)
 
 if __name__ == '__main__':
     app.run()

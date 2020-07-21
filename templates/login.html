@@ -2,28 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login Page</title>
+    <title>Index Page</title>
 </head>
-<body bgcolor="orange">
+<style>
+h1 {text-align: center;}
+.img-container {
+        text-align: center;
+      }
+</style>
 
-  <h1>file upload</h2>
+<body>
+
+  <h1>Computer will help you to recognise the image (Dog or Cat)</h2>
+  
+  
+  
+  <details>
+  <summary>How I works</summary>
+  <p>TI highly trained system using deep learning in same way how human brain works so that I can recoginize the image by seeing it whether it is cat or dog .I acurrently limited to recognise the cat or dog only,so upload only cat or dog image.I have 90 percentage efficieny so some time I might be worng... and I am still learning. </p>
+</details>
+  
+   
   <form action="/upload-image" method="POST" enctype="multipart/form-data">
       <div class="form-group">
-          <label>select image</label>
+          <h2>Upload the image to detect </h2>
           <div class="custom-file">
               <input type="file" name="image" id="image">
-              <label for="image" > select image </label>
-              
-          </div>
+           </div>
+		 
          <button type="submit">submit</button> 
       </div>
+	  
   </form>
 <br>
    <br>
-   {{ prediction_text }}
-   {{ test }} 
-<img src="{{test}}"  width="500" height="600">
-
 
 </body>
+
 </html>
